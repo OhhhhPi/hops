@@ -75,7 +75,7 @@ pipeline {
                 sh """
                     # set to empty to run in non interactive mode
                     export DOCKER_INTERACTIVE_RUN=
-                    ./start-build-env.sh mvn clean generate-sources install deploy -Pdist,native -Dtar -DskipTests -Dmaven.javadoc.skip=true -nsu
+                    ./start-build-env.sh mvn clean generate-sources install -Pdist,native -Dtar -DskipTests -Dmaven.javadoc.skip=true -nsu
                     scp -i ~/.ssh/id_rsa3 ./hadoop-dist/target/hadoop-${HOPS_VERSION}.tar.gz repo@jenkins.hops.works:/opt/repository/master/hops-${HOPS_VERSION}.tgz
                 """
             }
