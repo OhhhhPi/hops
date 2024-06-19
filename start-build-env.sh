@@ -64,6 +64,9 @@ FROM hadoop-build
 RUN echo "${USER_NAME} ALL=NOPASSWD: ALL" > "/etc/sudoers.d/hadoop-build-${USER_ID}"
 ENV HOME /home/${USER_NAME}
 RUN git config --system --add safe.directory '*'
+RUN mkdir -p /home/jenkins/.cache/go-build
+RUN chown -R jenkins:jenkins /home/jenkins/.cache
+
 UserSpecificDocker
 
 #If this env varible is empty, docker will be started
