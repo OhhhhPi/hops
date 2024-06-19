@@ -22,7 +22,7 @@ pipeline {
                         git fetch
                         git checkout ${params.BRANCH}
                         git pull
-                        mvn clean install deploy -DskipTests
+                        mvn clean install -DskipTests
                     """
 	            }
             }
@@ -43,7 +43,7 @@ pipeline {
                         git pull
                         # set to empty to run in non interactive mode
                         export DOCKER_INTERACTIVE_RUN=
-                        ./start-build-env.sh mvn clean install deploy assembly:assembly -DskipTests
+                        ./start-build-env.sh mvn clean install assembly:assembly -DskipTests
                     """
                     script {
                         RONDB_VERSION = sh (
