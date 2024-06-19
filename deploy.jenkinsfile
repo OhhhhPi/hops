@@ -32,7 +32,7 @@ pipeline {
                 dir("${WORKSPACE}/../hops_testing/dal"){
                     sh """
                         pwd
-                        git clone git clone https://github.com/hopshadoop/hops-metadata-dal-impl-ndb
+                        git clone https://github.com/hopshadoop/hops-metadata-dal-impl-ndb
                     """
                 }
                 dir("${WORKSPACE}/../hops_testing/dal/hops-metadata-dal-impl-ndb"){
