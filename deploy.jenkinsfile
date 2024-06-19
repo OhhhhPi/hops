@@ -4,6 +4,9 @@ pipeline {
             label 'hops-master-local'
         }
     }
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
+    }
     stages {
         stage ('build dal') {
             steps {
