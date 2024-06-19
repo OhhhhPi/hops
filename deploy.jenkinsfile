@@ -13,7 +13,7 @@ pipeline {
                 dir("${WORKSPACE}/../hops_testing/dal"){
                     sh """
                         pwd
-                        git clone git@github.com:hopshadoop/hops-metadata-dal.git
+                        git clone https://github.com/hopshadoop/hops-metadata-dal
                     """
                 }
                 dir("${WORKSPACE}/../hops_testing/dal/hops-metadata-dal"){
@@ -32,7 +32,7 @@ pipeline {
                 dir("${WORKSPACE}/../hops_testing/dal"){
                     sh """
                         pwd
-                        git clone git@github.com:hopshadoop/hops-metadata-dal-impl-ndb.git
+                        git clone git clone https://github.com/hopshadoop/hops-metadata-dal-impl-ndb
                     """
                 }
                 dir("${WORKSPACE}/../hops_testing/dal/hops-metadata-dal-impl-ndb"){
