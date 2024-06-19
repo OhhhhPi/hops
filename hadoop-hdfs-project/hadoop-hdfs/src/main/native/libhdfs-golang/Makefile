@@ -31,7 +31,6 @@ all: shared_lib
 
 shared_lib:
 	rm -f ${LIBHDFSGO_OUTPUT_DIR}/${LIBHDFSGO_OUTPUT_FILE}
-	sudo chmod -R 755 /home/jenkins/.cache
 	go build -ldflags=" \
 	-X hopsworks.ai/rdrs/version.GITCOMMIT=${GITCOMMIT} \
 	-X hopsworks.ai/rdrs/version.BUILDTIME=${BUILDTIME} \
