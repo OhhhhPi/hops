@@ -36,7 +36,7 @@ shared_lib:
 	-X hopsworks.ai/rdrs/version.BUILDTIME=${BUILDTIME} \
 	-X hopsworks.ai/rdrs/version.HOSTNAME=${HOSTNAME} \
 	-X hopsworks.ai/rdrs/version.BRANCH=${BRANCH}" \
-	-o ${LIBHDFSGO_OUTPUT_DIR}/${LIBHDFSGO_OUTPUT_FILE} -buildmode=c-shared
+	-o ${LIBHDFSGO_OUTPUT_DIR}/${LIBHDFSGO_OUTPUT_FILE} -buildmode=c-shared -buildvcs=false
 	chmod 744  ${LIBHDFSGO_OUTPUT_DIR}/${LIBHDFSGO_OUTPUT_FILE}
 	cd ${LIBHDFSGO_OUTPUT_DIR} && ln -sf ${LIBHDFSGO_OUTPUT_FILE} libhdfs.so
 

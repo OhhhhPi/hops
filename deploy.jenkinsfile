@@ -57,15 +57,15 @@ pipeline {
                         ).trim()
                         echo "HOPS_VERSION: ${HOPS_VERSION}"
 
-                        echo "Deploying Hops - NDB connector...."
-                        sh """
-                            scp -i ~/.ssh/id_rsa target/hops-metadata-dal-impl-ndb-${HOPS_VERSION}-jar-with-dependencies.jar repo@jenkins.hops.works:/opt/repository/master//ndb-dal-${HOPS_VERSION}-${RONDB_VERSION}.jar                            
-                        """
+                        // echo "Deploying Hops - NDB connector...."
+                        // sh """
+                        //     scp -i ~/.ssh/id_rsa target/hops-metadata-dal-impl-ndb-${HOPS_VERSION}-jar-with-dependencies.jar repo@jenkins.hops.works:/opt/repository/master//ndb-dal-${HOPS_VERSION}-${RONDB_VERSION}.jar                            
+                        // """
 
-                        echo "Deploying Hops Schema...."
-                        sh """
-                            scp -i ~/.ssh/id_rsa schema/update-schema* repo@jenkins.hops.works:/opt/repository/master//hops-schemas/
-                        """
+                        // echo "Deploying Hops Schema...."
+                        // sh """
+                        //     scp -i ~/.ssh/id_rsa schema/update-schema* repo@jenkins.hops.works:/opt/repository/master//hops-schemas/
+                        // """
                     }
                 }
             }
@@ -76,7 +76,7 @@ pipeline {
                     # set to empty to run in non interactive mode
                     export DOCKER_INTERACTIVE_RUN=
                     ./start-build-env.sh mvn clean generate-sources install -Pdist,native -Dtar -DskipTests -Dmaven.javadoc.skip=true -nsu
-                    scp -i ~/.ssh/id_rsa ./hadoop-dist/target/hadoop-${HOPS_VERSION}.tar.gz repo@jenkins.hops.works:/opt/repository/master/hops-${HOPS_VERSION}.tgz
+                    # scp -i ~/.ssh/id_rsa ./hadoop-dist/target/hadoop-${HOPS_VERSION}.tar.gz repo@jenkins.hops.works:/opt/repository/master/hops-${HOPS_VERSION}.tgz
                 """
             }
         }
