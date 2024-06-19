@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'local'
+            label 'hops-master-local'
         }
     }
     environment {
