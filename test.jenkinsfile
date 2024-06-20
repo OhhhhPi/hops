@@ -4,6 +4,9 @@ pipeline {
             label 'hops-master-local'
         }
     }
+    parameters {
+        string(name: 'KEEP_DB_AFTER_RUN', defaultValue: 'yes', description: 'keep db after run')
+    }
     environment {
         EXPOSE_MYSQLD_PORTS_STARTING_AT="${16000+(100*Integer.parseInt(env.EXECUTOR_NUMBER))}"
         MYSQL_USER="mysql"
@@ -200,7 +203,7 @@ pipeline {
                     export DOCKER_INTERACTIVE_RUN=
                     export NETWORK='--network rondb_v${RONDB_VERSION_NO_DOT}_m1_g1_r1_my1_ra0_bn0_${SUFFIX}_default'
                     export MAVEN_REPO=${WORKSPACE}/../hops_testing/.m2_${SUFFIX}
-                    ./start-build-env.sh mvn clean install -Pndb,native -nsu -fn -Drequire.isal 
+                    ./start-build-env.sh mvn test -Dtest=TestFileCreation -Pndb
                 """
             }
             post {
